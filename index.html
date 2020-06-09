@@ -14,7 +14,7 @@
       rel="stylesheet"
     />
   </head>
-  <body>
+  <body data-barba="wrapper">
     <header class="nav-header">
       <h1><a href="./index.html" id="logo">days.</a></h1>
       <div class="burger">
@@ -22,7 +22,7 @@
         <div class="line2"></div>
       </div>
     </header>
-    <main>
+    <main data-barba="container" data-barba-namespace="home">
       <section class="mountain slide">
         <div class="hero-img">
           <img src="./img/forest.png" alt="forest image" />
@@ -128,11 +128,11 @@
       integrity="sha256-MVs0yHYDQBhIRZrNeWB1YaNMrGbFwowIEPIl3um5MZE="
       crossorigin="anonymous"
     ></script>
-    <script>
+    <!-- <script>
       barba.init({
         // ...
       });
-    </script>
+    </script> -->
     <script src="./app.js"></script>
   </body>
 </html>
