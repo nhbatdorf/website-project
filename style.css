@@ -172,6 +172,7 @@ main {
   transition: all 0.5s ease-in-out;
   transition-property: background, transform;
   transform-origin: 75% 75%;
+  z-index: 6;
 }
 
 .cursor.nav-active {
@@ -382,4 +383,37 @@ body.hide {
     padding: 2rem;
     text-align: center;
   }
+}
+
+/* swiper js */
+html,
+body {
+  height: 100%;
+}
+
+.swiper-container {
+  width: 80%;
+  height: 60%;
+  margin-left: auto;
+  margin-right: auto;
+}
+.swiper-slide {
+  background-size: cover;
+  background-position: center;
+}
+.gallery-top {
+  height: 60%;
+  width: 80%;
+}
+.gallery-thumbs {
+  height: 15%;
+  box-sizing: border-box;
+  padding: 10px 0;
+}
+.gallery-thumbs .swiper-slide {
+  height: 100%;
+  opacity: 0.4;
+}
+.gallery-thumbs .swiper-slide-thumb-active {
+  opacity: 1;
 }

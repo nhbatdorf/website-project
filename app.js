@@ -76,11 +76,11 @@ function activeCursor(e) {
   } else {
     mouse.classList.remove("nav-active");
   }
-  if (item.classList.contains("explore")) {
+  if (item.classList.contains("large")) {
     mouse.classList.add("explore-active");
     gsap.to(".title", 1, { color: "#740467" });
     // gsap.to(".title-swipe", 1, { y: "0%" });
-    mouseTxt.innerText = "Tap";
+    mouseTxt.innerText = "Cook";
   } else {
     mouse.classList.remove("explore-active");
     gsap.to(".title", 1, { color: "white" });
