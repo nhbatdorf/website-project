@@ -30,32 +30,6 @@ function animateSlides() {
       reverse: false,
     })
       .setTween(slideTl)
-      // .addIndicators({
-      //   colorStart: "white",
-      //   colorTrigger: "white",
-      //   name: "slide",
-      // })
-      .addTo(controller);
-
-    const pageTl = gsap.timeline();
-    let nextSlide = slides.length - 1 === index ? "end" : slides[index + 1];
-    pageTl.fromTo(nextSlide, { y: "0%" }, { y: "50%" });
-    pageTl.fromTo(slide, { opacity: 1, scale: 1 }, { opacity: 0, scale: 0 });
-    pageTl.fromTo(nextSlide, { y: "50%" }, { y: "0%" }, "-=0.5");
-
-    pageScene = new ScrollMagic.Scene({
-      triggerElement: slide,
-      duration: "100%",
-      triggerHook: 0,
-    })
-      // .addIndicators({
-      //   colorStart: "white",
-      //   colorTrigger: "white",
-      //   name: "page",
-      //   indent: 200,
-      // })
-      .setPin(slide, { pushFollowers: false })
-      .setTween(pageTl)
       .addTo(controller);
   });
 }
@@ -114,24 +88,44 @@ barba.init({
     {
       namespace: "home",
       beforeEnter() {
-        animateSlides();
         logo.href = "./index.html";
+        logo.innerText = "Homegrown Olive";
       },
       beforeLeave() {
-        slideScene.destroy();
-        pageScene.destroy();
         controller.destroy();
       },
     },
     {
-      namespace: "fashion",
+      namespace: "soup",
       beforeEnter() {
         logo.href = "../index.html";
-        detailAnimation();
+        logo.innerText = "Homegrown Soup";
+        animateSlides();
       },
       beforeLeave() {
         controller.destroy();
-        detailScene.destroy();
+      },
+    },
+    {
+      namespace: "pasta",
+      beforeEnter() {
+        logo.href = "../index.html";
+        logo.innerText = "Homegrown Pasta";
+        animateSlides();
+      },
+      beforeLeave() {
+        controller.destroy();
+      },
+    },
+    {
+      namespace: "desert",
+      beforeEnter() {
+        logo.href = "../index.html";
+        logo.innerText = "Homegrown Desert";
+        animateSlides();
+      },
+      beforeLeave() {
+        controller.destroy();
       },
     },
   ],
@@ -158,7 +152,6 @@ barba.init({
           ".swipe",
           1,
           { x: "0%" },
-
           { x: "100%", stagger: 0.2, onComplete: done }
         );
         tl.fromTo(next.container, 1, { opacity: 0 }, { opacity: 1 });
@@ -174,33 +167,8 @@ barba.init({
   ],
 });
 
-function detailAnimation() {
-  controller = new ScrollMagic.Controller();
-  const slides = document.querySelectorAll(".detail-slide");
-  slides.forEach((slide, index, slides) => {
-    const slideTl = gsap.timeline({ defaults: { duration: 1 } });
-    let nextSlide = slides.length - 1 === index ? "end" : slides[index + 1];
-    const nextImg = nextSlide.querySelector("img");
-    slideTl.fromTo(slide, { opacity: 1 }, { opacity: 0 });
-    slideTl.fromTo(nextSlide, { opacity: 0 }, { opacity: 1 }, "-=1");
-    slideTl.fromTo(nextImg, { x: "50%" }, { x: "0%" });
-
-    detailScene = new ScrollMagic.Scene({
-      triggerElement: slide,
-      duration: "100%",
-      triggerHook: 0,
-    })
-      .setPin(slide, { pushFollowers: false })
-      .setTween(slideTl)
-      .addIndicators({
-        colorStart: "white",
-        colorTrigger: "white",
-        name: "detailScene",
-      })
-      .addTo(controller);
-  });
-}
-
 burger.addEventListener("click", navToggle);
 window.addEventListener("mousemove", cursor);
 window.addEventListener("mouseover", activeCursor);
+
+console.log(logo.innerText);
