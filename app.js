@@ -2,9 +2,15 @@ let controller;
 let slideScene;
 let pageScene;
 
+const mouse = document.querySelector(".cursor");
+const mouseTxt = mouse.querySelector("span");
+const burger = document.querySelector(".burger");
+const blogPost = document.querySelectorAll(".large");
+const logo = document.querySelector("#logo");
+
 const colorOne = "#740467"; //Purple
-const colorTwo = "#fa8f8f"; //Pink
-const colorThree = "#85c4ae"; //Teal
+const colorTwo = "#ffb4ad"; //Pink
+const colorThree = "#61ad8e"; //Teal
 const colorFour = "#391966"; //Royal Purple
 
 function animateSlides() {
@@ -34,10 +40,6 @@ function animateSlides() {
   });
 }
 
-const mouse = document.querySelector(".cursor");
-const mouseTxt = mouse.querySelector("span");
-const burger = document.querySelector(".burger");
-
 function cursor(e) {
   mouse.style.top = e.pageY + "px";
   mouse.style.left = e.pageX + "px";
@@ -52,13 +54,9 @@ function activeCursor(e) {
   }
   if (item.classList.contains("large")) {
     mouse.classList.add("explore-active");
-    gsap.to(".title", 1, { color: "#740467" });
-    // gsap.to(".title-swipe", 1, { y: "0%" });
     mouseTxt.innerText = "Cook";
   } else {
     mouse.classList.remove("explore-active");
-    gsap.to(".title", 1, { color: "white" });
-    // gsap.to(".title-swipe", 1, { y: "100%" });
     mouseTxt.innerText = " ";
   }
 }
@@ -81,94 +79,6 @@ function navToggle(e) {
   }
 }
 
-const logo = document.querySelector("#logo");
-
-barba.init({
-  views: [
-    {
-      namespace: "home",
-      beforeEnter() {
-        logo.href = "./index.html";
-        logo.innerText = "Homegrown Olive";
-      },
-      beforeLeave() {
-        controller.destroy();
-      },
-    },
-    {
-      namespace: "soup",
-      beforeEnter() {
-        logo.href = "../index.html";
-        logo.innerText = "Homegrown Soup";
-        animateSlides();
-      },
-      beforeLeave() {
-        controller.destroy();
-      },
-    },
-    {
-      namespace: "pasta",
-      beforeEnter() {
-        logo.href = "../index.html";
-        logo.innerText = "Homegrown Pasta";
-        animateSlides();
-      },
-      beforeLeave() {
-        controller.destroy();
-      },
-    },
-    {
-      namespace: "desert",
-      beforeEnter() {
-        logo.href = "../index.html";
-        logo.innerText = "Homegrown Desert";
-        animateSlides();
-      },
-      beforeLeave() {
-        controller.destroy();
-      },
-    },
-  ],
-  transitions: [
-    {
-      leave({ current, next }) {
-        let done = this.async();
-        const tl = gsap.timeline({ defaults: { ease: "power2.inOut" } });
-        tl.fromTo(current.container, 1, { opacity: 1 }, { opacity: 0 });
-        tl.fromTo(
-          ".swipe",
-          0.75,
-          { x: "-100%" },
-          { x: "0%", onComplete: done },
-          "-=0.5"
-        );
-      },
-      enter({ current, next }) {
-        let done = this.async();
-
-        window.scrollTo(0, 0);
-        const tl = gsap.timeline({ defaults: { ease: "power2.inOut" } });
-        tl.fromTo(
-          ".swipe",
-          1,
-          { x: "0%" },
-          { x: "100%", stagger: 0.2, onComplete: done }
-        );
-        tl.fromTo(next.container, 1, { opacity: 0 }, { opacity: 1 });
-        tl.fromTo(
-          ".nav-header",
-          1,
-          { y: "-100%" },
-          { y: "0%", ease: "power2.inOut" },
-          "-=1.5"
-        );
-      },
-    },
-  ],
-});
-
 burger.addEventListener("click", navToggle);
 window.addEventListener("mousemove", cursor);
 window.addEventListener("mouseover", activeCursor);
-
-console.log(logo.innerText);
