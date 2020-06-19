@@ -5,7 +5,7 @@
 }
 
 body {
-  background: #ffb4ad;
+  background: #93ddcb;
   font-family: "Montserrat", sans-serif;
   overflow-x: hidden;
   position: relative;
@@ -18,7 +18,7 @@ main {
 }
 
 #logo {
-  color: #740467;
+  color: #600f0b;
   font-family: "Abril Fatface";
 }
 
@@ -41,7 +41,7 @@ main {
   width: 3rem;
   height: 0.2rem;
   margin: 0.4rem;
-  background: #740467;
+  background: #600f0b;
   pointer-events: none;
 }
 
@@ -52,8 +52,8 @@ main {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  color: white;
-  background: #ffb4ad;
+  color: #600f0b;
+  background: #93ddcb;
 }
 
 .recipe img {
@@ -94,7 +94,7 @@ main {
 .hero-desc p {
   padding: 3rem 0rem;
   font-size: 1.5rem;
-  color: rgb(223, 223, 223);
+  color: #600f0b;
 }
 
 .explore {
@@ -115,8 +115,8 @@ main {
   left: 0;
   width: 100%;
   height: 100%;
-  background: #61ad8e;
-  color: #391966;
+  background: #f7d2cf;
+  color: #065633;
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -166,7 +166,7 @@ main {
 .cursor {
   width: 3rem;
   height: 3rem;
-  border: 2px solid white;
+  border: 2px solid #009e67;
   border-radius: 50%;
   position: absolute;
   transform: translate(-50%, -50%);
@@ -177,13 +177,9 @@ main {
   z-index: 1;
 }
 
-.cursor.nav-active {
-  background: #61ad8e;
-  transform: scale(3);
-}
-
+.cursor.nav-active,
 .cursor.explore-active {
-  background: #61ad8e;
+  background: #f7d2cf;
   transform: scale(3);
 }
 
@@ -192,7 +188,7 @@ main {
   top: 50%;
   left: 50%;
   font-size: 0.5rem;
-  color: white;
+  color: #065633;
   transform: translate(-50%, -50%);
 }
 
@@ -214,7 +210,7 @@ main {
 .t-swipe1,
 .t-swipe2,
 .t-swipe3 {
-  background-color: #740467;
+  background-color: #600f0b;
 }
 
 .scrollmagic-pin-spacer {
@@ -234,15 +230,15 @@ body.hide {
   transform: translate(100%);
 }
 .swipe1 {
-  background: #391966;
+  background: #600f0b;
   z-index: 5;
 }
 .swipe2 {
-  background: #740467;
+  background: #065633;
   z-index: 4;
 }
 .swipe3 {
-  background: #85c4ae;
+  background: #009e67;
   z-index: 3;
 }
 

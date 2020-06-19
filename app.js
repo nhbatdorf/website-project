@@ -8,10 +8,10 @@ const burger = document.querySelector(".burger");
 const blogPost = document.querySelectorAll(".large");
 const logo = document.querySelector("#logo");
 
-const colorOne = "#740467"; //Purple
+const DarkTextOne = "#600f0b"; //Red
 const colorTwo = "#ffb4ad"; //Pink
 const colorThree = "#61ad8e"; //Teal
-const colorFour = "#391966"; //Royal Purple
+const DarkTextTwo = "#065633"; //Green
 
 function animateSlides() {
   controller = new ScrollMagic.Controller();
@@ -64,16 +64,16 @@ function activeCursor(e) {
 function navToggle(e) {
   if (!e.target.classList.contains("active")) {
     e.target.classList.add("active");
-    gsap.to(".line1", 0.5, { rotate: "45", y: 5, background: colorFour });
-    gsap.to(".line2", 0.5, { rotate: "-45", y: -5, background: colorFour });
-    gsap.to("#logo", 1, { color: colorFour });
+    gsap.to(".line1", 0.5, { rotate: "45", y: 5, background: DarkTextTwo });
+    gsap.to(".line2", 0.5, { rotate: "-45", y: -5, background: DarkTextTwo });
+    gsap.to("#logo", 1, { color: DarkTextTwo });
     gsap.to(".nav-bar", 1, { clipPath: "circle(2500px at 100% -10%" });
     document.body.classList.add("hide");
   } else {
     e.target.classList.remove("active");
-    gsap.to(".line1", 0.5, { rotate: "0", y: 0, background: colorOne });
-    gsap.to(".line2", 0.5, { rotate: "0", y: 0, background: colorOne });
-    gsap.to("#logo", 1, { color: colorOne });
+    gsap.to(".line1", 0.5, { rotate: "0", y: 0, background: DarkTextOne });
+    gsap.to(".line2", 0.5, { rotate: "0", y: 0, background: DarkTextOne });
+    gsap.to("#logo", 1, { color: DarkTextOne });
     gsap.to(".nav-bar", 1, { clipPath: "circle(50px at 100% -10%" });
     document.body.classList.remove("hide");
   }
