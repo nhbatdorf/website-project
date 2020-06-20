@@ -5,7 +5,7 @@
 }
 
 body {
-  background: #93ddcb;
+  background: #e6fef1;
   font-family: "Montserrat", sans-serif;
   overflow-x: hidden;
   position: relative;
@@ -20,6 +20,7 @@ main {
 #logo {
   color: #600f0b;
   font-family: "Abril Fatface";
+  cursor: none;
 }
 
 .nav-header {
@@ -27,13 +28,32 @@ main {
   font-size: 1rem;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
   color: white;
   width: 80%;
   margin: auto;
   padding: 2rem 0rem;
   z-index: 2;
   position: relative;
+}
+
+.nav-header h1 {
+  flex: 1;
+  display: flex;
+  margin-right: auto;
+}
+
+.mode {
+  height: 10vh;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.burger {
+  cursor: none;
+  margin-left: auto;
 }
 
 .line1,
@@ -53,7 +73,7 @@ main {
   justify-content: space-between;
   align-items: center;
   color: #600f0b;
-  background: #93ddcb;
+  background: #e6fef1;
 }
 
 .recipe img {
@@ -106,7 +126,7 @@ main {
   font-size: 1rem;
   text-decoration: none;
   align-self: flex-start;
-  cursor: pointer;
+  cursor: none;
 }
 
 .nav-bar {
@@ -115,7 +135,7 @@ main {
   left: 0;
   width: 100%;
   height: 100%;
-  background: #f7d2cf;
+  background: #f8e2e9;
   color: #065633;
   display: flex;
   justify-content: space-around;
@@ -124,10 +144,6 @@ main {
   opacity: 1;
   clip-path: circle(50px at 100% -10%);
   -webkit-clip-path: circle(50px at 100% -10%);
-}
-
-.burger {
-  cursor: pointer;
 }
 
 .nav-links {
@@ -158,7 +174,7 @@ main {
   position: absolute;
   width: 100%;
   height: 150%;
-  background: ffb4ad;
+  background: f8e2e9;
   left: 0;
   top: -15%;
 }
@@ -166,7 +182,7 @@ main {
 .cursor {
   width: 3rem;
   height: 3rem;
-  border: 2px solid #009e67;
+  border: 0px solid #009e67;
   border-radius: 50%;
   position: absolute;
   transform: translate(-50%, -50%);
@@ -179,8 +195,9 @@ main {
 
 .cursor.nav-active,
 .cursor.explore-active {
-  background: #f7d2cf;
+  background: #f8e2e9;
   transform: scale(3);
+  border: 2px solid #009e67;
 }
 
 .cursor-text {
@@ -298,6 +315,10 @@ body.hide {
     padding: 2rem;
     text-align: center;
   }
+}
+
+.large {
+  cursor: none;
 }
 
 /* swiper js */
