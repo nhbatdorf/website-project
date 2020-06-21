@@ -72,8 +72,6 @@ main {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  color: #600f0b;
-  background: #e6fef1;
 }
 
 .recipe img {
@@ -114,7 +112,6 @@ main {
 .hero-desc p {
   padding: 3rem 0rem;
   font-size: 1.5rem;
-  color: #600f0b;
 }
 
 .explore {

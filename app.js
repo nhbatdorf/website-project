@@ -1,6 +1,7 @@
 let controller;
 let slideScene;
 let pageScene;
+let localMode = "sun";
 
 const mouse = document.querySelector(".cursor");
 const mouseTxt = mouse.querySelector("span");
@@ -19,19 +20,34 @@ const darkTextTwo = "#065633"; //Green
 function animateSlides() {
   controller = new ScrollMagic.Controller();
   const sliders = document.querySelectorAll(".slide");
-  const nav = document.querySelector(".nav-header");
+  const swipers = document.querySelectorAll(".swipe");
+
+  getLocal();
+  setMode(localMode);
+
+  console.log(swipers);
+  swipers.forEach((swipe) => {
+    const pageTl = gsap.timeline({
+      defaults: { duration: 1 },
+    });
+    pageTl.fromTo(swipe, { x: "0%" }, { x: "100%", stagger: 0.2 });
+
+    pageScene = new ScrollMagic.Scene({
+      reverse: false,
+    })
+      .setTween(pageTl)
+      .addTo(controller);
+  });
 
   sliders.forEach((slide, index, slides) => {
     const revealImg = slide.querySelector(".reveal-image");
     const img = slide.querySelector("img");
-    const revealText = slide.querySelector(".reveal-text");
 
     const slideTl = gsap.timeline({
       defaults: { duration: 1, ease: "power2.inOut" },
     });
     slideTl.fromTo(revealImg, { x: "0%" }, { x: "100%" });
     slideTl.fromTo(img, { scale: 2 }, { scale: 1 }, "-=1");
-    slideTl.fromTo(revealText, { x: "0%" }, { x: "100%" }, "-=0.75");
 
     slideScene = new ScrollMagic.Scene({
       triggerElement: slide,
@@ -82,31 +98,55 @@ function navToggle(e) {
   }
 }
 
-function modeToggle(e) {
-  const modeIcon = e.target;
+function setMode() {
   const body = document.body.style;
   const line1 = document.querySelector(".line1");
   const line2 = document.querySelector(".line2");
 
-  console.log(line1);
-  if (modeIcon.classList.contains("sun")) {
-    modeIcon.classList.add("moon");
-    modeIcon.classList.remove("sun");
-    modeIcon.src = "./img/moon.png";
+  if (localMode === "moon") {
+    mode.classList.add("moon");
+    mode.classList.remove("sun");
+    mode.src = "./img/moon.png";
+    mode.srcset = "../img/moon.png";
     body.background = darkBack;
     body.color = lightText;
     logo.style.color = lightText;
     line1.style.background = lightText;
     line2.style.background = lightText;
+    localMode = "moon";
   } else {
-    modeIcon.classList.add("sun");
-    modeIcon.classList.remove("moon");
-    modeIcon.src = "./img/sun.png";
+    mode.classList.add("sun");
+    mode.classList.remove("moon");
+    mode.src = "./img/sun.png";
+    mode.srcset = "../img/sun.png";
     body.background = lightBack;
     body.color = darkTextOne;
     logo.style.color = darkTextOne;
     line1.style.background = darkTextOne;
     line2.style.background = darkTextOne;
+    localMode = "sun";
+  }
+}
+
+function modeToggle() {
+  getLocal();
+  if (localMode === "sun") {
+    localMode = "moon";
+  } else {
+    localMode = "sun";
+  }
+  setMode();
+  localStorage.setItem("mode", JSON.stringify(localMode));
+  console.log("Save ", localMode, " to Local Storage.");
+}
+
+function getLocal() {
+  if (localStorage.getItem("mode") === null) {
+    localMode = "sun";
+    console.log("No Local Storage.  Setting mode to Sun.");
+  } else {
+    localMode = JSON.parse(localStorage.getItem("mode"));
+    console.log("Mode found in Local Storage. Set to ", localMode, ".");
   }
 }
 
