@@ -243,6 +243,7 @@ body.hide {
   left: 0;
   transform: translate(100%);
 }
+
 .swipe1 {
   background: #600f0b;
   z-index: 5;

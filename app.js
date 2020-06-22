@@ -20,24 +20,21 @@ const darkTextTwo = "#065633"; //Green
 function animateSlides() {
   controller = new ScrollMagic.Controller();
   const sliders = document.querySelectorAll(".slide");
-  const swipers = document.querySelectorAll(".swipe");
 
   getLocal();
   setMode(localMode);
 
-  console.log(swipers);
-  swipers.forEach((swipe) => {
-    const pageTl = gsap.timeline({
-      defaults: { duration: 1 },
-    });
-    pageTl.fromTo(swipe, { x: "0%" }, { x: "100%", stagger: 0.2 });
-
-    pageScene = new ScrollMagic.Scene({
-      reverse: false,
-    })
-      .setTween(pageTl)
-      .addTo(controller);
+  const pageTl = gsap.timeline({
+    defaults: { ease: "power2.inOut" },
   });
+  pageTl.fromTo(".swipe", 0.75, { x: "-100%" }, { x: "0%" });
+  pageTl.fromTo(".swipe", 0.75, { x: "0%" }, { x: "100%", stagger: 0.2 });
+
+  pageScene = new ScrollMagic.Scene({
+    reverse: false,
+  })
+    .setTween(pageTl)
+    .addTo(controller);
 
   sliders.forEach((slide, index, slides) => {
     const revealImg = slide.querySelector(".reveal-image");
@@ -99,9 +96,9 @@ function navToggle(e) {
 }
 
 function setMode() {
-  const body = document.body.style;
   const line1 = document.querySelector(".line1");
   const line2 = document.querySelector(".line2");
+  const body = document.body.style;
 
   if (localMode === "moon") {
     mode.classList.add("moon");
@@ -137,16 +134,13 @@ function modeToggle() {
   }
   setMode();
   localStorage.setItem("mode", JSON.stringify(localMode));
-  console.log("Save ", localMode, " to Local Storage.");
 }
 
 function getLocal() {
   if (localStorage.getItem("mode") === null) {
     localMode = "sun";
-    console.log("No Local Storage.  Setting mode to Sun.");
   } else {
     localMode = JSON.parse(localStorage.getItem("mode"));
-    console.log("Mode found in Local Storage. Set to ", localMode, ".");
   }
 }
 
