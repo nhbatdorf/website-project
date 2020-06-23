@@ -103,8 +103,7 @@ function setMode() {
   if (localMode === "moon") {
     mode.classList.add("moon");
     mode.classList.remove("sun");
-    mode.src = "./img/moon.png";
-    mode.srcset = "../img/moon.png";
+    mode.src = "../img/moon.png";
     body.background = darkBack;
     body.color = lightText;
     logo.style.color = lightText;
@@ -114,8 +113,7 @@ function setMode() {
   } else {
     mode.classList.add("sun");
     mode.classList.remove("moon");
-    mode.src = "./img/sun.png";
-    mode.srcset = "../img/sun.png";
+    mode.src = "../img/sun.png";
     body.background = lightBack;
     body.color = darkTextOne;
     logo.style.color = darkTextOne;
