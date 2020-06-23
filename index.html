@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Olive Eats</title>
-    <link rel="stylesheet" href="../style.css" />
+    <link rel="stylesheet" href="./style.css" />
     <link
       href="https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap"
       rel="stylesheet"
@@ -17,8 +17,24 @@
   </head>
   <body onload="animateSlides()">
     <header class="nav-header">
-      <h1><a href="./index.html" id="logo">Olive Eats</a></h1>
-      <img class="mode sun" src="../img/sun.png" alt="mode" />
+      <!-- <h1><a href="./index.html" id="logo">Olive Eats</a></h1> -->
+      <h1>
+        <button
+          type="button"
+          class="button"
+          id="logo"
+          onclick="pageLink('main')"
+        >
+          <img class="icon olive" src="./img/mother.png" alt="icon" />
+          Olive Eats
+        </button>
+      </h1>
+      <img
+        class="mode sun"
+        src="./img/sun.png"
+        srcset="../img/sun.png"
+        alt="mode"
+      />
       <div class="burger">
         <div class="line1"></div>
         <div class="line2"></div>
@@ -28,18 +44,18 @@
       <div class="swiper-wrapper">
         <a
           class="swiper-slide large"
-          style="background-image: url(../img/soup.jpeg);"
-          href="../soup/index.html"
+          style="background-image: url(./img/soup.jpeg);"
+          onclick="pageLink('/soup')"
         ></a>
         <a
           class="swiper-slide large"
-          style="background-image: url(../img/pasta.jpeg);"
-          href="../pasta/index.html"
+          style="background-image: url(./img/pasta.jpeg);"
+          href="./pasta/index.html"
         ></a>
         <a
           class="swiper-slide large"
-          style="background-image: url(../img/dessert.jpeg);"
-          href="../dessert/index.html"
+          style="background-image: url(./img/dessert.jpeg);"
+          href="./dessert/index.html"
         ></a>
       </div>
     </div>
@@ -47,15 +63,15 @@
       <div class="swiper-wrapper">
         <div
           class="swiper-slide thumb"
-          style="background-image: url(../img/soup.jpeg);"
+          style="background-image: url(./img/soup.jpeg);"
         ></div>
         <div
           class="swiper-slide thumb"
-          style="background-image: url(../img/pasta.jpeg);"
+          style="background-image: url(./img/pasta.jpeg);"
         ></div>
         <div
           class="swiper-slide thumb"
-          style="background-image: url(../img/dessert.jpeg);"
+          style="background-image: url(./img/dessert.jpeg);"
         ></div>
       </div>
     </div>
@@ -124,7 +140,7 @@
       });
     </script>
 
-    <script src="../app.js"></script>
+    <script src="./app.js"></script>
   </body>
   <footer>
     Icons made by

@@ -10,11 +10,11 @@ const burger = document.querySelector(".burger");
 const blogPost = document.querySelectorAll(".large");
 const logo = document.querySelector("#logo");
 
-const darkTextOne = "#600f0b"; //Red
-const lightText = "#cdecfe"; //Blue
+const darkTextOne = "#600f0b"; //Red  rgb(96, 15,11)
+const lightText = "#cdecfe"; //Blue  rgb(205, 236, 254)
 const colorTwo = "#f8e2e9"; //Pink
-const darkBack = "#261b36"; //Purple
-const lightBack = "#e6fef1"; //Teal
+const darkBack = "#261b36"; //Purple  rgb(38, 27, 54)
+const lightBack = "#e6fef1"; //Teal  rgb(230, 254, 241)
 const darkTextTwo = "#065633"; //Green
 
 function animateSlides() {
@@ -23,18 +23,6 @@ function animateSlides() {
 
   getLocal();
   setMode(localMode);
-
-  const pageTl = gsap.timeline({
-    defaults: { ease: "power2.inOut" },
-  });
-  pageTl.fromTo(".swipe", 0.75, { x: "-100%" }, { x: "0%" });
-  pageTl.fromTo(".swipe", 0.75, { x: "0%" }, { x: "100%", stagger: 0.2 });
-
-  pageScene = new ScrollMagic.Scene({
-    reverse: false,
-  })
-    .setTween(pageTl)
-    .addTo(controller);
 
   sliders.forEach((slide, index, slides) => {
     const revealImg = slide.querySelector(".reveal-image");
@@ -54,6 +42,20 @@ function animateSlides() {
       .setTween(slideTl)
       .addTo(controller);
   });
+}
+
+function pageTrans() {
+  const pageTl = gsap.timeline({
+    defaults: { ease: "power2.inOut" },
+  });
+  pageTl.fromTo(".swipe", 0.75, { x: "-100%" }, { x: "0%" });
+  pageTl.fromTo(".swipe", 0.75, { x: "0%" }, { x: "100%", stagger: 0.2 });
+
+  pageScene = new ScrollMagic.Scene({
+    reverse: false,
+  })
+    .setTween(pageTl)
+    .addTo(controller);
 }
 
 function cursor(e) {
@@ -103,19 +105,20 @@ function setMode() {
   if (localMode === "moon") {
     mode.classList.add("moon");
     mode.classList.remove("sun");
-    mode.src = "../img/moon.png";
-    body.background = darkBack;
-    body.color = lightText;
+    mode.src = "./img/moon.png";
+    mode.srcset = "../img/moon.png";
+    document.body.classList.add("moon");
     logo.style.color = lightText;
     line1.style.background = lightText;
     line2.style.background = lightText;
     localMode = "moon";
+    console.log(document.body.classList);
   } else {
     mode.classList.add("sun");
     mode.classList.remove("moon");
-    mode.src = "../img/sun.png";
-    body.background = lightBack;
-    body.color = darkTextOne;
+    mode.src = "./img/sun.png";
+    mode.srcset = "../img/sun.png";
+    document.body.classList.remove("moon");
     logo.style.color = darkTextOne;
     line1.style.background = darkTextOne;
     line2.style.background = darkTextOne;
@@ -139,6 +142,16 @@ function getLocal() {
     localMode = "sun";
   } else {
     localMode = JSON.parse(localStorage.getItem("mode"));
+  }
+}
+
+function pageLink(link) {
+  pageTrans();
+
+  if (link === "main") {
+    location.href = "./index.html";
+  } else {
+    location.href = "." + link + "/index.html";
   }
 }
 

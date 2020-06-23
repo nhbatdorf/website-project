@@ -6,9 +6,17 @@
 
 body {
   background: #e6fef1;
+  color: #600f0b;
   font-family: "Montserrat", sans-serif;
   overflow-x: hidden;
   position: relative;
+  transition: all 0.5s ease-in-out;
+}
+
+body.moon {
+  background: #261b36;
+  color: #cdecfe;
+  transition: all 0.5s ease-in-out;
 }
 
 main {
@@ -49,6 +57,10 @@ main {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.icon {
+  height: 10vh;
 }
 
 .burger {
