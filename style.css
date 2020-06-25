@@ -249,16 +249,15 @@ body.hide {
 
 .swipe {
   position: fixed;
-  width: 100%;
+  width: 0%;
   height: 100%;
   top: 0;
-  left: 0;
-  transform: translate(100%);
+  transition: width 0.5s ease-in-out;
 }
 
 .swipe1 {
   background: #600f0b;
-  z-index: 5;
+  z-index: 3;
 }
 .swipe2 {
   background: #065633;
@@ -266,7 +265,14 @@ body.hide {
 }
 .swipe3 {
   background: #009e67;
-  z-index: 3;
+  z-index: 5;
+}
+
+.swipe.trans {
+  width: 100%;
+  right: 0;
+  transition: right 0.5s ease-in-out;
+  transition: width 0.5s ease-in-out;
 }
 
 @media screen and (max-width: 1500px) {
