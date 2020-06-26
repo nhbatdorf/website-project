@@ -93,7 +93,6 @@ function setMode() {
     mode.classList.add("moon");
     mode.classList.remove("sun");
     mode.src = "./img/moon.png";
-    mode.srcset = "../img/moon.png";
     document.body.classList.add("moon");
     logo.style.color = lightText;
     line1.style.background = lightText;
@@ -104,7 +103,6 @@ function setMode() {
     mode.classList.add("sun");
     mode.classList.remove("moon");
     mode.src = "./img/sun.png";
-    mode.srcset = "../img/sun.png";
     document.body.classList.remove("moon");
     logo.style.color = darkTextOne;
     line1.style.background = darkTextOne;
