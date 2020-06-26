@@ -161,7 +161,7 @@ function pageLink(link) {
     if (link === "main") {
       location.href = "./index.html";
     } else if (link === "bump") {
-      location.href = "../index.html";
+      location.href = "./index.html";
     } else {
       location.href = "." + link + ".html";
     }
