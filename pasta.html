@@ -3,8 +3,8 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Olive Eats Soup</title>
-    <link rel="stylesheet" href="../style.css" />
+    <title>Olive Eats Pasta</title>
+    <link rel="stylesheet" href="./style.css" />
     <link
       href="https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap"
       rel="stylesheet"
@@ -16,21 +16,21 @@
   </head>
   <body onload="animateSlides()">
     <header class="nav-header">
-      <h1><a href="../index.html" id="logo">Olive Eats Soup</a></h1>
-      <img class="mode" src="../img/sun.png" alt="mode" />
+      <h1><a id="logo" onclick="pageLink('bump')">Olive Eats Pasta</a></h1>
+      <img class="mode" src="./img/sun.png" alt="mode" />
       <div class="burger">
         <div class="line1"></div>
         <div class="line2"></div>
       </div>
     </header>
-    <section class="soup slide">
+    <section class="pasta slide">
       <div class="hero-img">
-        <img src="../img/soup.jpeg" alt="soup image" />
+        <img src="./img/pasta.jpeg" alt="pasta image" />
         <div class="reveal-image"></div>
       </div>
       <div class="hero-desc">
         <div class="title">
-          <h2>Taste a hint of <span class="soup-span">olive.</span></h2>
+          <h2>Taste a hint of <span class="pasta-span">olive.</span></h2>
           <div class="title-swipe t-swipe2"></div>
         </div>
         <p>
@@ -42,7 +42,7 @@
       </div>
     </section>
     <div class="recipe">
-      <img src="../img/mock_recipe.jpg" alt="recipe" />
+      <img src="./img/mock_recipe.jpg" alt="recipe" />
     </div>
 
     <nav class="nav-bar">
@@ -63,7 +63,6 @@
     <div class="cursor">
       <span class="cursor-text"></span>
     </div>
-
     <div class="swipe swipe1"></div>
     <div class="swipe swipe2"></div>
     <div class="swipe swipe3"></div>
@@ -84,6 +83,6 @@
       crossorigin="anonymous"
     ></script>
 
-    <script src="../app.js"></script>
+    <script src="./app.js"></script>
   </body>
 </html>

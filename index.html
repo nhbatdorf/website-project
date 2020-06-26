@@ -17,22 +17,13 @@
   </head>
   <body onload="animateSlides()">
     <header class="nav-header">
-      <!-- <h1><a href="./index.html" id="logo">Olive Eats</a></h1> -->
       <h1>
-        <button
-          type="button"
-          class="button"
-          id="logo"
-          onclick="pageLink('main')"
-        >
-          <img class="icon olive" src="./img/mother.png" alt="icon" />
-          Olive Eats
-        </button>
+        <a id="logo" onclick="pageLink('main')">Olive Eats</a>
       </h1>
       <img
         class="mode sun"
         src="./img/sun.png"
-        srcset="../img/sun.png"
+        srcset="./img/sun.png"
         alt="mode"
       />
       <div class="burger">
@@ -50,12 +41,12 @@
         <a
           class="swiper-slide large"
           style="background-image: url(./img/pasta.jpeg);"
-          href="./pasta/index.html"
+          onclick="pageLink('/pasta')"
         ></a>
         <a
           class="swiper-slide large"
           style="background-image: url(./img/dessert.jpeg);"
-          href="./dessert/index.html"
+          onclick="pageLink('/dessert')"
         ></a>
       </div>
     </div>

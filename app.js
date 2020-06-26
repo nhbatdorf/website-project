@@ -21,6 +21,7 @@ function animateSlides() {
   controller = new ScrollMagic.Controller();
   const sliders = document.querySelectorAll(".slide");
 
+  activePage();
   getLocal();
   setMode(localMode);
 
@@ -42,23 +43,6 @@ function animateSlides() {
       .setTween(slideTl)
       .addTo(controller);
   });
-}
-
-function pageTrans() {
-  const pageTl = gsap.timeline({
-    defaults: { ease: "power2.inOut" },
-  });
-  pageTl
-    .fromTo(".swipe", 0.75, { x: "-100%" }, { x: "0%" })
-    .fromTo(".swipe", 0.75, { x: "0%" }, { x: "100%", stagger: 0.2 });
-  // .fromTo(document.body, 0.5, { opacity: 0 }, { opacity: 1 }, "+=3");
-
-  pageTl.play();
-  // pageScene = new ScrollMagic.Scene({
-  //   reverse: false,
-  // })
-  //   .setTween(pageTl)
-  //   .addTo(controller);
 }
 
 function cursor(e) {
@@ -148,47 +132,42 @@ function getLocal() {
   }
 }
 
-function pageMove(link) {
-  console.log("Running pageMove");
-
-  console.log("Running pageMove");
-}
-
-function pageLink(link) {
-  // pageTrans();
+function activePage() {
   const s1 = document.querySelector(".swipe1");
   const s2 = document.querySelector(".swipe2");
   const s3 = document.querySelector(".swipe3");
 
-  s1.classList.add("trans");
+  s3.classList.add("active");
   setTimeout(() => {
-    s2.classList.add("trans");
+    s2.classList.add("active");
   }, 250);
   setTimeout(() => {
-    s3.classList.add("trans");
+    s1.classList.add("active");
   }, 500);
+}
 
-  setTimeout(() => {
-    s3.classList.remove("trans");
-  }, 1000);
-  setTimeout(() => {
-    s2.classList.remove("trans");
-  }, 1250);
-  setTimeout(() => {
-    s1.classList.remove("trans");
-  }, 1500);
+function pageLink(link) {
+  const s1 = document.querySelector(".swipe1");
+  const s2 = document.querySelector(".swipe2");
+  const s3 = document.querySelector(".swipe3");
 
-  // setTimeout(() => {
-  //   s3.classList.add("trans");
-  // }, 500);
+  s1.classList.remove("active");
+  setTimeout(() => {
+    s2.classList.remove("active");
+  }, 250);
+  setTimeout(() => {
+    s3.classList.remove("active");
+  }, 500);
 
   setTimeout(() => {
     if (link === "main") {
       location.href = "./index.html";
+    } else if (link === "bump") {
+      location.href = "../index.html";
     } else {
-      location.href = "." + link + "/index.html";
+      location.href = "." + link + ".html";
     }
-  }, 2000);
+  }, 1000);
 }
 
 burger.addEventListener("click", navToggle);

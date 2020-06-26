@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Olive Eats Dessert</title>
-    <link rel="stylesheet" href="../style.css" />
+    <link rel="stylesheet" href="./style.css" />
     <link
       href="https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap"
       rel="stylesheet"
@@ -16,8 +16,8 @@
   </head>
   <body onload="animateSlides()">
     <header class="nav-header">
-      <h1><a href="../index.html" id="logo">Olive Eats Dessert</a></h1>
-      <img class="mode" src="../img/sun.png" alt="mode" />
+      <h1><a id="logo" onclick="pageLink('bump')">Olive Eats Dessert</a></h1>
+      <img class="mode" src="./img/sun.png" alt="mode" />
       <div class="burger">
         <div class="line1"></div>
         <div class="line2"></div>
@@ -25,7 +25,7 @@
     </header>
     <section class="dessert slide">
       <div class="hero-img">
-        <img src="../img/dessert.jpeg" alt="dessert image" />
+        <img src="./img/dessert.jpeg" alt="dessert image" />
         <div class="reveal-image"></div>
       </div>
       <div class="hero-desc">
@@ -42,7 +42,7 @@
       </div>
     </section>
     <div class="recipe">
-      <img src="../img/mock_recipe.jpg" alt="recipe" />
+      <img src="./img/mock_recipe.jpg" alt="recipe" />
     </div>
 
     <nav class="nav-bar">
@@ -83,6 +83,6 @@
       crossorigin="anonymous"
     ></script>
 
-    <script src="../app.js"></script>
+    <script src="./app.js"></script>
   </body>
 </html>
