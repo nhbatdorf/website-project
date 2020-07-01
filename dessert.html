@@ -13,6 +13,12 @@
       href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Montserrat&display=swap"
       rel="stylesheet"
     />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css"
+      integrity="sha256-h20CPZ0QyXlBuAw7A+KluUYx/3pK+c7lYEpqLTlxjYQ="
+      crossorigin="anonymous"
+    />
   </head>
   <body onload="animateSlides()">
     <header class="nav-header">
@@ -41,9 +47,6 @@
         <div class="reveal-text"></div>
       </div>
     </section>
-    <div class="recipe">
-      <img src="./img/mock_recipe.jpg" alt="recipe" />
-    </div>
 
     <nav class="nav-bar">
       <ul class="nav-links">
@@ -67,6 +70,35 @@
     <div class="swipe swipe2"></div>
     <div class="swipe swipe3"></div>
 
+    <div class="recipe">
+      <div class="recipe-header">
+        <h1>Dessert</h1>
+      </div>
+      <div class="lists">
+        <div>
+          <h2 class="ingredients">Ingredients:</h2>
+          <ul class="item-list">
+            <li class="list-item"><input type="checkbox" />Flour</li>
+            <li class="list-item"><input type="checkbox" />Eggs</li>
+            <li class="list-item"><input type="checkbox" />Sugar</li>
+            <li class="list-item"><input type="checkbox" />Chocolate</li>
+          </ul>
+        </div>
+        <div>
+          <h2 class="directions">Directions:</h2>
+          <ul class="task-list">
+            <li class="list-task"><input type="checkbox" />Make the Batter</li>
+            <li class="list-task"><input type="checkbox" />Bake in Over</li>
+            <li class="list-task"><input type="checkbox" />Prep Icing</li>
+            <li class="list-task"><input type="checkbox" />Layer Cake</li>
+            <li class="list-task">
+              <input type="checkbox" />Top with Chocolate
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
     <script
       src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/ScrollMagic.min.js"
       integrity="sha256-2p2tRZlPowp3P/04Pw2rqVCSbhyV/IB7ZEVUglrDS/c="
@@ -85,4 +117,16 @@
 
     <script src="./app.js"></script>
   </body>
+
+  <footer>
+    <p>Made by Squidrite</p>
+    <p>
+      Icons made by
+      <a href="https://www.flaticon.com/authors/freepik" title="Freepik"
+        >Freepik</a
+      >
+      from
+      <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a>
+    </p>
+  </footer>
 </html>

@@ -13,6 +13,12 @@
       href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Montserrat&display=swap"
       rel="stylesheet"
     />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css"
+      integrity="sha256-h20CPZ0QyXlBuAw7A+KluUYx/3pK+c7lYEpqLTlxjYQ="
+      crossorigin="anonymous"
+    />
   </head>
   <body onload="animateSlides()">
     <header class="nav-header">
@@ -41,9 +47,6 @@
         <div class="reveal-text"></div>
       </div>
     </section>
-    <div class="recipe">
-      <img src="./img/mock_recipe.jpg" alt="recipe" />
-    </div>
 
     <nav class="nav-bar">
       <ul class="nav-links">
@@ -67,6 +70,44 @@
     <div class="swipe swipe2"></div>
     <div class="swipe swipe3"></div>
 
+    <div class="recipe">
+      <div class="recipe-header">
+        <h1>Pasta</h1>
+      </div>
+      <div class="lists">
+        <div>
+          <h2 class="ingredients">Ingredients:</h2>
+          <ul class="item-list">
+            <li class="list-item"><input type="checkbox" />Spagetti</li>
+            <li class="list-item"><input type="checkbox" />Ground Beef</li>
+            <li class="list-item"><input type="checkbox" />Crushed Tomatoes</li>
+            <li class="list-item"><input type="checkbox" />Parmesan Cheese</li>
+            <li class="list-item"><input type="checkbox" />Oregano</li>
+          </ul>
+        </div>
+        <div>
+          <h2 class="directions">Directions:</h2>
+          <ul class="task-list">
+            <li class="list-task"><input type="checkbox" />Brown Beef</li>
+            <li class="list-task"><input type="checkbox" />Drain Fat</li>
+            <li class="list-task">
+              <input type="checkbox" />Heat Tomatoes on Low
+            </li>
+            <li class="list-task">
+              <input type="checkbox" />Stir in Beef and Oregano
+            </li>
+            <li class="list-task"><input type="checkbox" />Boil Water</li>
+            <li class="list-task">
+              <input type="checkbox" />Cook Spagetti for 5 Minutes
+            </li>
+            <li class="list-task">
+              <input type="checkbox" />Drain and Top with Sauce and Cheese
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
     <script
       src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/ScrollMagic.min.js"
       integrity="sha256-2p2tRZlPowp3P/04Pw2rqVCSbhyV/IB7ZEVUglrDS/c="
@@ -85,4 +126,16 @@
 
     <script src="./app.js"></script>
   </body>
+
+  <footer>
+    <p>Made by Squidrite</p>
+    <p>
+      Icons made by
+      <a href="https://www.flaticon.com/authors/freepik" title="Freepik"
+        >Freepik</a
+      >
+      from
+      <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a>
+    </p>
+  </footer>
 </html>

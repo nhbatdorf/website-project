@@ -174,32 +174,19 @@ window.addEventListener("mousemove", cursor);
 window.addEventListener("mouseover", activeCursor);
 
 //Selectors
-const todoInput = document.querySelector(".todo-input");
-const todoButton = document.querySelector(".todo-button");
-const todoList = document.querySelector(".todo-list");
-const filterOption = document.querySelector(".filter-todo");
+const listItem = document.querySelectorAll(".list-item");
 
 //Event Listeners
 document.addEventListener("DOMContentLoaded", getTodos);
-todoButton.addEventListener("click", addTodo);
-todoList.addEventListener("click", deleteCheck);
-filterOption.addEventListener("click", filterTodo);
+listItem.forEach((item) => {
+  item.addEventListener("click", deleteCheck);
+});
 
 function deleteCheck(e) {
+  console.log(e.target);
   const item = e.target;
-
-  if (item.classList[0] === "trash-btn") {
-    const todo = item.parentElement;
-    todo.classList.add("fall");
-    removeLocalTodos(todo);
-    todo.addEventListener("transitionend", function () {
-      todo.remove();
-    });
-  }
-
-  if (item.classList[0] === "complete-btn") {
-    const todo = item.parentElement;
-    todo.classList.toggle("completed");
+  if (item.classList.contains("item")) {
+    item.classList.toggle("acquired");
   }
 }
 
@@ -238,16 +225,4 @@ function getTodos() {
     todoDiv.appendChild(trashButton);
     todoList.appendChild(todoDiv);
   });
-}
-
-function removeLocalTodos(todo) {
-  let todos;
-  if (localStorage.getItem("todos") === null) {
-    todos = [];
-  } else {
-    todos = JSON.parse(localStorage.getItem("todos"));
-  }
-  const todoIndex = todo.children[0].innerText;
-  todos.splice(todos.indexOf(todoIndex), 1);
-  localStorage.setItem("todos", JSON.stringify(todos));
 }
