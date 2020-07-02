@@ -12,8 +12,10 @@ const logo = document.querySelector("#logo");
 
 const darkTextOne = "#600f0b"; //Red  rgb(96, 15,11)
 const lightText = "#cdecfe"; //Blue  rgb(205, 236, 254)
+const lightTextTwo = "#faffdb"; //Light Yellow
 const colorTwo = "#f8e2e9"; //Pink
 const darkBack = "#261b36"; //Purple  rgb(38, 27, 54)
+const darkBackTwo = "#00292e"; //Dark Green
 const lightBack = "#e6fef1"; //Teal  rgb(230, 254, 241)
 const darkTextTwo = "#065633"; //Green
 
@@ -87,23 +89,24 @@ function navToggle(e) {
 function setMode() {
   const line1 = document.querySelector(".line1");
   const line2 = document.querySelector(".line2");
-  const body = document.body.style;
+  const recipeDiv = document.querySelector(".recipe");
 
   if (localMode === "moon") {
     mode.classList.add("moon");
     mode.classList.remove("sun");
     mode.src = "./img/moon.png";
     document.body.classList.add("moon");
+    recipeDiv.classList.add("moon");
     logo.style.color = lightText;
     line1.style.background = lightText;
     line2.style.background = lightText;
     localMode = "moon";
-    console.log(document.body.classList);
   } else {
     mode.classList.add("sun");
     mode.classList.remove("moon");
     mode.src = "./img/sun.png";
     document.body.classList.remove("moon");
+    recipeDiv.classList.remove("moon");
     logo.style.color = darkTextOne;
     line1.style.background = darkTextOne;
     line2.style.background = darkTextOne;
@@ -175,18 +178,34 @@ window.addEventListener("mouseover", activeCursor);
 
 //Selectors
 const listItem = document.querySelectorAll(".list-item");
+const listTask = document.querySelectorAll(".list-task");
 
 //Event Listeners
 document.addEventListener("DOMContentLoaded", getTodos);
 listItem.forEach((item) => {
   item.addEventListener("click", deleteCheck);
 });
+listTask.forEach((task) => {
+  task.addEventListener("click", deleteCheck);
+});
 
 function deleteCheck(e) {
-  console.log(e.target);
   const item = e.target;
   if (item.classList.contains("item")) {
-    item.classList.toggle("acquired");
+    if (item.classList.contains("fa-times")) {
+      item.classList = "fas fa-check item";
+    } else {
+      item.classList = "fa fa-times item";
+    }
+  }
+
+  if (item.classList.contains("task")) {
+    item.parentElement.parentElement.classList.toggle("complete");
+    if (item.classList.contains("fa-hourglass")) {
+      item.classList = "fas fa-check task";
+    } else {
+      item.classList = "fa fa-hourglass task";
+    }
   }
 }
 
