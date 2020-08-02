@@ -9,6 +9,7 @@ const mode = document.querySelector(".mode");
 const burger = document.querySelector(".burger");
 const blogPost = document.querySelectorAll(".large");
 const logo = document.querySelector("#logo");
+const recipeDiv = document.querySelector(".recipe");
 
 const darkTextOne = "#600f0b"; //Red  rgb(96, 15,11)
 const lightText = "#cdecfe"; //Blue  rgb(205, 236, 254)
@@ -89,7 +90,6 @@ function navToggle(e) {
 function setMode() {
   const line1 = document.querySelector(".line1");
   const line2 = document.querySelector(".line2");
-  const recipeDiv = document.querySelector(".recipe");
 
   if (localMode === "moon") {
     mode.classList.add("moon");

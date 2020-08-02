@@ -70,6 +70,10 @@ main {
   align-items: center;
 }
 
+.hide {
+  opacity: 0;
+}
+
 .icon {
   height: 10vh;
 }
